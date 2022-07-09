@@ -14,28 +14,14 @@ function ScreenSource() {
     async function loadAPISources() {
       const request = await fetch('https://newsapi.org/v2/top-headlines/sources?apiKey=c25e3e4bf2a14dc2bfdcb8500e0154e4')
       const articles = await request.json()
+     
       setSourceList(articles.sources)
-      console.log(articles.sources)
-
+      // console.log(articles.sources)
     }
     loadAPISources()
-
+    
   }, [])
 
-  // const data = [
-  //   {
-  //     title: 'Ant Design Title 1',
-  //   },
-  //   {
-  //     title: 'Ant Design Title 2',
-  //   },
-  //   {
-  //     title: 'Ant Design Title 3',
-  //   },
-  //   {
-  //     title: 'Ant Design Title 4',
-  //   },
-  // ];
 
   return (
     <div>
@@ -47,7 +33,6 @@ function ScreenSource() {
             <List.Item>
               <List.Item.Meta
                 avatar={<Avatar src={"/images/"+source.category+".png"}/>}
-                // title={<Link to={"/screenarticlesbysource"}>{source.name}</Link>}
                 title={<Link to={"/screenarticlesbysource/"+source.id}>{source.name}</Link>}
                 description={source.description}
               />

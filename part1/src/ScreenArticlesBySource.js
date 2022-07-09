@@ -10,22 +10,23 @@ function ScreenArticlesBySource() {
 
   const [articleList, setArticleList] = useState([])
 
-  var { id } = useParams();
-  // https://www.geeksforgeeks.org/reactjs-useparams-hook/
-  
+    var { id } = useParams();
+    // https://www.geeksforgeeks.org/reactjs-useparams-hook/
+    // The useParams hook returns an object of key/value pairs, of the dynamic params from the current URL that were matched by the <Route path>. Child routes inherit all params from their parent routes.
+
   //// Load article details ////
   useEffect(() => {
+
     async function loadArticleDetails() {
 
       const request = await fetch("https://newsapi.org/v2/top-headlines?sources="+id+"&apiKey=b32c8b844d1243b1a7998d8228910f50")
       const articleDetails = await request.json()
 
       setArticleList(articleDetails.articles)
-
       // console.log(articleDetails)
-
     }
     loadArticleDetails()
+    
   }, [])
 
 
