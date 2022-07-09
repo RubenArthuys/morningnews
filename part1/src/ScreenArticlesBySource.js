@@ -33,18 +33,15 @@ function ScreenArticlesBySource() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
-
   var showModal = (title, content) => {
     setIsModalVisible(true)
     setTitle(title)
     setContent(content)
   }
-
   var handleOk = e => {
     console.log(e)
     setIsModalVisible(false)
   }
-
   var handleCancel = e => {
     console.log(e)
     setIsModalVisible(false)
