@@ -7,7 +7,6 @@ import ScreenSource from './ScreenSource'
 import ScreenArticlesBySource from './ScreenArticlesBySource'
 import ScreenMyArticles from './ScreenMyArticles'
 
-
 function App() {
   return (
 
