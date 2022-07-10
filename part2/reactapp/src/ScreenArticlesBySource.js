@@ -33,6 +33,7 @@ function ScreenArticlesBySource() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
+  
   var showModal = (title, content) => {
     setIsModalVisible(true)
     setTitle(title)

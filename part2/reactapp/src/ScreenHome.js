@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Input, Button } from 'antd';
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 function ScreenHome() {
 
@@ -76,7 +76,7 @@ function ScreenHome() {
         <Input.Password className="Login-input" placeholder="Password" 
               onChange={(e) => setSignInPassword(e.target.value)}
               value={signInPassword}/>
-              
+
         {errorSignIn.map(error => <p>{error}</p>)}
         <Button style={{ width: '80px' }} type="primary"
                   onClick={() => handleSubmitSignIn(signInEmail, signInPassword)}>Sign-in</Button>

@@ -33,7 +33,7 @@ router.post('/sign-up', async function(req,res,next){
   res.json({ result, userSave, error });
 })
 
-// Find users to MongoDB
+// Find users on MongoDB
 router.post('/sign-in', async function(req,res,next){
   
   var error = []
