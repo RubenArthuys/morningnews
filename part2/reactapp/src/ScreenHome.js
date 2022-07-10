@@ -14,8 +14,11 @@ function ScreenHome() {
 
   const [userExists, setUserExists] = useState(false)
 
+  const [errorSignUp, setErrorSignUp] = useState([])
+  const [errorSignIn, setErrorSignIn] = useState([])
+
+
   //// Fonction rajout de users dans mongoDB ////
- 
   var handleSubmitSignUp = async (name, email, pass) => {
 
     const dataSignUp = await fetch('/sign-up', {
@@ -26,11 +29,17 @@ function ScreenHome() {
 
     const bodySignUp = await dataSignUp.json()
     // console.log(bodySignUp)
+
     if(bodySignUp.result == true) {
       setUserExists(true)
+    } else {
+      setErrorSignUp(bodySignUp.error)
     }
+    // console.log(bodySignUp.error)
+
   }
   
+  //// Sign In ////
   var handleSubmitSignIn = async (email, pass) => {
 
     const dataSignIn = await fetch('/sign-in', {
@@ -42,8 +51,11 @@ function ScreenHome() {
 
     const bodySignIn = await dataSignIn.json()
     // console.log(bodySignIn)
+
     if(bodySignIn.result == true) {
       setUserExists(true)
+    } else {
+      setErrorSignIn(bodySignIn.error)
     }
   }
 
@@ -64,7 +76,9 @@ function ScreenHome() {
         <Input.Password className="Login-input" placeholder="Password" 
               onChange={(e) => setSignInPassword(e.target.value)}
               value={signInPassword}/>
-          <Button style={{ width: '80px' }} type="primary"
+              
+        {errorSignIn.map(error => <p>{error}</p>)}
+        <Button style={{ width: '80px' }} type="primary"
                   onClick={() => handleSubmitSignIn(signInEmail, signInPassword)}>Sign-in</Button>
       </div>
 
@@ -79,7 +93,10 @@ function ScreenHome() {
         <Input.Password className="Login-input" placeholder="Password"
                onChange={(e) => setSignUpPassword(e.target.value)}
                value={signUpPassword}/>
-          <Button style={{ width: '80px' }} type="primary" 
+        
+        {errorSignUp.map(error => <p>{error}</p>)}
+        
+        <Button style={{ width: '80px' }} type="primary" 
                   onClick={() => handleSubmitSignUp(signUpUsername, signUpEmail, signUpPassword)}> Sign-up</Button>
       </div>
     </div>
