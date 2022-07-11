@@ -18,7 +18,7 @@ function ScreenHome() {
   const [errorSignIn, setErrorSignIn] = useState([])
 
 
-  //// Fonction rajout de users dans mongoDB ////
+  //// Sign Up ////
   var handleSubmitSignUp = async (name, email, pass) => {
 
     const dataSignUp = await fetch('/sign-up', {
@@ -29,7 +29,6 @@ function ScreenHome() {
 
     const bodySignUp = await dataSignUp.json()
     // console.log(bodySignUp)
-
     if(bodySignUp.result == true) {
       setUserExists(true)
     } else {
@@ -51,7 +50,6 @@ function ScreenHome() {
 
     const bodySignIn = await dataSignIn.json()
     // console.log(bodySignIn)
-
     if(bodySignIn.result == true) {
       setUserExists(true)
     } else {
@@ -79,7 +77,8 @@ function ScreenHome() {
 
         {errorSignIn.map(error => <p>{error}</p>)}
         <Button style={{ width: '80px' }} type="primary"
-                  onClick={() => handleSubmitSignIn(signInEmail, signInPassword)}>Sign-in</Button>
+                onClick={() => handleSubmitSignIn(signInEmail, signInPassword)}>
+                Sign-in</Button>
       </div>
 
       {/* SIGN-UP */}
@@ -97,7 +96,7 @@ function ScreenHome() {
         {errorSignUp.map(error => <p>{error}</p>)}
         
         <Button style={{ width: '80px' }} type="primary" 
-                  onClick={() => handleSubmitSignUp(signUpUsername, signUpEmail, signUpPassword)}> Sign-up</Button>
+                onClick={() => handleSubmitSignUp(signUpUsername, signUpEmail, signUpPassword)}> Sign-up</Button>
       </div>
     </div>
   );

@@ -29,7 +29,8 @@ function ScreenSource() {
       <div className="Banner" />
       <div className="HomeThemes">
         <List itemLayout="horizontal" dataSource={sourceList}
-          renderItem={source => (
+          renderItem={(source) => (
+
             <List.Item>
               <List.Item.Meta
                 avatar={<Avatar src={"/images/"+source.category+".png"}/>}
@@ -37,6 +38,7 @@ function ScreenSource() {
                 description={source.description}
               />
             </List.Item>
+
           )}
         />
       </div>

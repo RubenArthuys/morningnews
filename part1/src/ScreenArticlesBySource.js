@@ -38,6 +38,7 @@ function ScreenArticlesBySource() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
+  
   var showModal = (title, content) => {
     setIsModalVisible(true)
     setTitle(title)
@@ -64,14 +65,18 @@ function ScreenArticlesBySource() {
 
           <div key={i} style={{ display: 'flex', justifyContent: 'center' }}>
             
-            <Card style={{width: 300, margin: '15px', display: 'flex', 
-                          flexDirection: 'column', justifyContent: 'space-between'}}
+            <Card style={{
+                  width: 300, 
+                  margin: '15px', 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  justifyContent: 'space-between'}}
                   cover={<img alt="example" src={article.urlToImage}/>}
                   actions={[
-                    <Icon type="read" key="ellipsis2" 
-                          onClick={() => showModal(article.title, article.content)} />, 
-                    <Icon type="like" key="ellipsis" />]}>
-              <Meta title={article.title} description={article.description}/>
+                  <Icon type="read" key="ellipsis2" 
+                        onClick={() => showModal(article.title, article.content)} />, 
+                  <Icon type="like" key="ellipsis" />]}>
+            <Meta title={article.title} description={article.description}/>
             </Card>
 
             <Modal title={title} visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
