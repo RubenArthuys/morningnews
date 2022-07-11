@@ -64,7 +64,6 @@ function ScreenArticlesBySource() {
       {articleList.map((article, i) => (
 
           <div key={i} style={{ display: 'flex', justifyContent: 'center' }}>
-            
             <Card style={{
                   width: 300, 
                   margin: '15px', 
