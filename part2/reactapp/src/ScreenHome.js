@@ -13,7 +13,6 @@ function ScreenHome() {
   const [signInPassword, setSignInPassword] = useState('')  
 
   const [userExists, setUserExists] = useState(false)
-
   const [errorSignUp, setErrorSignUp] = useState([])
   const [errorSignIn, setErrorSignIn] = useState([])
 
@@ -28,14 +27,14 @@ function ScreenHome() {
     })
 
     const bodySignUp = await dataSignUp.json()
-    // console.log(bodySignUp)
-    if(bodySignUp.result == true) {
+    console.log(bodySignUp)
+    
+    if(bodySignUp.result) {
       setUserExists(true)
     } else {
       setErrorSignUp(bodySignUp.error)
     }
     // console.log(bodySignUp.error)
-
   }
   
   //// Sign In ////
@@ -50,7 +49,7 @@ function ScreenHome() {
 
     const bodySignIn = await dataSignIn.json()
     // console.log(bodySignIn)
-    if(bodySignIn.result == true) {
+    if(bodySignIn.result) {
       setUserExists(true)
     } else {
       setErrorSignIn(bodySignIn.error)
@@ -76,6 +75,7 @@ function ScreenHome() {
               value={signInPassword}/>
 
         {errorSignIn.map(error => <p>{error}</p>)}
+
         <Button style={{ width: '80px' }} type="primary"
                 onClick={() => handleSubmitSignIn(signInEmail, signInPassword)}>
                 Sign-in</Button>

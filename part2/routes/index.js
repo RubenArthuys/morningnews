@@ -57,9 +57,9 @@ router.post('/sign-in', async function(req,res,next){
     var result = false;
     if(user) {
       result = true;  
-    } else {
-      error.push("Incorrect email or password")
-    }
+      } else {
+        error.push("Incorrect email or password")
+      }
   }
 
   res.json({ result, user, error });

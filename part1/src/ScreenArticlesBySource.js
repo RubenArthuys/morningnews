@@ -9,7 +9,7 @@ const { Meta } = Card;
 function ScreenArticlesBySource() {
 
   const [articleList, setArticleList] = useState([])
-  const { id } = useParams();
+                         const { id } = useParams();
   
   // const params = useParams();
   // console.log(params)
@@ -73,7 +73,9 @@ function ScreenArticlesBySource() {
                   cover={<img alt="example" src={article.urlToImage}/>}
                   actions={[
                   <Icon type="read" key="ellipsis2" 
+
                         onClick={() => showModal(article.title, article.content)} />, 
+                        
                   <Icon type="like" key="ellipsis" />]}>
             <Meta title={article.title} description={article.description}/>
             </Card>
