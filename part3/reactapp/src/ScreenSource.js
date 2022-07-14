@@ -28,17 +28,20 @@ function ScreenSource() {
       <Nav />
       <div className="Banner" />
       <div className="HomeThemes">
-        <List itemLayout="horizontal" dataSource={sourceList}
-          renderItem={source => (
-            <List.Item>
-              <List.Item.Meta
-                avatar={<Avatar src={"/images/"+source.category+".png"}/>}
-                title={<Link to={"/screenarticlesbysource/"+source.id}>{source.name}</Link>}
-                description={source.description}
-              />
-            </List.Item>
-          )}
+        
+        <List itemLayout="horizontal" 
+              dataSource={sourceList}
+              renderItem={source => (
+                <List.Item>
+                  <List.Item.Meta
+                    avatar={<Avatar src={"/images/"+source.category+".png"}/>}
+                    title={<Link to={"/screenarticlesbysource/"+source.id}>{source.name}</Link>}
+                    description={source.description}
+                  />
+                </List.Item>
+              )}  
         />
+        
       </div>
     </div>
   );
