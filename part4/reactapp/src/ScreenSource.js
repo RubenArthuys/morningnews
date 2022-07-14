@@ -15,14 +15,7 @@ function ScreenSource(props) {
 
     async function loadAPISources() {
 
-      var changeCountry = ''
-      if(props.selectCountry === 'gb') {
-        changeCountry = 'gb'
-      } else if (props.selectCountry === 'fr') {
-        changeCountry = 'fr'
-      }
-
-      const request = await fetch('https://newsapi.org/v2/top-headlines/sources?apiKey=c25e3e4bf2a14dc2bfdcb8500e0154e4&country='+ changeCountry)
+      const request = await fetch('https://newsapi.org/v2/top-headlines/sources?apiKey=c25e3e4bf2a14dc2bfdcb8500e0154e4&country='+ props.selectCountry)
       const articles = await request.json()
      
       setSourceList(articles.sources)
@@ -37,9 +30,9 @@ function ScreenSource(props) {
     <div>
       <Nav />
       <div className="Banner" style = {{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-          <Avatar src={"./images/uk.png"} alt="british flag" onClick={() => props.changeCountry('gb')}
+          <Avatar src={"./images/uk.png"} alt="british flag" onClick={() => props.changeToEnglish()}
                   style={{marginRight: 10}}/>
-          <Avatar src={"./images/fr.png"} alt="british flag" onClick={() => props.changeCountry('fr')}/>
+          <Avatar src={"./images/fr.png"} alt="british flag" onClick={() => props.changeToFrench()}/>
       </div>
 
       <div className="HomeThemes">
@@ -69,8 +62,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    changeCountry: function(country) {
-      dispatch({ type : 'changeCountry', countryChange : country })
+    changeToEnglish: function() {
+      dispatch({ type : 'changeToEnglish', countryChange : 'gb' })
+    },
+    changeToFrench: function() {
+      dispatch({ type : 'changeToFrench', countryChange : 'fr' })
     }
   }
 }

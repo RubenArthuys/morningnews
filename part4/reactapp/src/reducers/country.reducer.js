@@ -1,12 +1,16 @@
-export default function countryReducer(country = 'gb', action) {
+export default function countryReducer(country = '', action) {
 
-  if(action.type === 'changeCountry') {
+  if(action.type === 'changeToEnglish') {
     
-      let newCountry = country.slice() // copy of country
-      newCountry = action.countryChange // rewrite country
+      let newCountry = action.countryChange
+      return newCountry
+
+  } else if(action.type === 'changeToFrench'){
+      
+    let newCountry = action.countryChange
       return newCountry
 
   } else {
-      return country;
+    return country
   }
 }
