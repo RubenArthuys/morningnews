@@ -11,6 +11,7 @@ export default function wishList(wishList = [], action) {
           findArticle = true
         }
       }
+      
       if(!findArticle) {
         wishListCopy.push(action.articleLiked) 
       }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect  } from 'react';
 import './App.css';
 import { Card, Icon } from 'antd';
 import Nav from './Nav'
@@ -10,6 +10,26 @@ const { Meta } = Card;
 
 function ScreenMyArticles(props) {
   // console.log(props)
+
+  //// Load articles from MongoDB ////
+  useEffect(() => {
+
+    async function loadArticles() {
+      
+      const request = await fetch(`/wishList/${props.myToken}`, {
+        method : 'GET',
+        headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+        // body : ...no 'body' in GET method, use params instead.
+      })
+
+      const body = await request.json()
+
+      if(body.result && body.loadArticles) {
+        props.importArticles(body.loadArticles)
+      }
+    }
+    loadArticles()
+  }, [])
 
 
   //// Delete from store & BDD ////
@@ -77,11 +97,11 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 
   return {
+    importArticles: function (articles) {
+      dispatch({ type: 'importArticles', articles })
+    },
     deleteFromWishList: function(articleTitle) {
-      dispatch({ 
-        type : 'deleteArticle', 
-        title : articleTitle 
-      })
+      dispatch({ type : 'deleteArticle', title : articleTitle })
     }
   }}
 

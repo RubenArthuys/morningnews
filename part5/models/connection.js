@@ -14,7 +14,7 @@ mongoose.connect('mongodb+srv://rubenarth:XH2uztbN9ttgnTVQ@cluster0.v5blhg2.mong
       if (err) {
           console.log(`error, failed to connect to the database because --> ${err}`);
       } else {
-        console.info("CONNECTION TO morningnews DATABASE OK 𖡃");      }
+        console.info("__CONNECTION TO DATABASE morningnews___ OK 𖡃");      }
       }
  )
 

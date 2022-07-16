@@ -90,10 +90,10 @@ router.post('/wishList', async function(req, res) {
   if(user !== null) {
 
     user.userArticles.push({
-      articleTitle : req.body.titleFromFront,
-      articleDescription : req.body.descriptionFromFront,
-      articleContent : req.body.contentFromFront,
-      articleImage : req.body.imageFromFront
+      title : req.body.titleFromFront,
+      description : req.body.descriptionFromFront,
+      content : req.body.contentFromFront,
+      urlToImage : req.body.imageFromFront
     })
     
     await user.save()
@@ -112,8 +112,8 @@ router.delete('/wishList', async function(req, res) {
   if(user !== null) {
 
     user.userArticles = user.userArticles.filter((element) => 
-    element.articleTitle !== req.body.titleFromFront)
-    console.log(req.body.titleFromFront)
+    element.title !== req.body.titleFromFront)
+    // console.log(req.body.titleFromFront)
 
     await user.save()
   }
@@ -122,17 +122,19 @@ router.delete('/wishList', async function(req, res) {
 })
 
 // Load article from BDD - À réparer
-// router.get('/wishList/:myToken', async function(req, res) {
+router.get('/wishList/:myToken', async function(req, res) {
 
-//   var user = await usersModel.findOne({ userToken : req.params.myToken })
+  var user = await usersModel.findOne({ userToken : req.params.myToken })
 
-//   var loadArticles = []
+  var loadArticles = []
+  var result = false
 
-//   if(user !== null) {
-//     loadArticles = user.userArticles
-//   }
+  if(user !== null) {
+    loadArticles = user.userArticles
+    result = true
+  }
   
-//   res.json({ loadArticles });
-// })
+  res.json({ loadArticles, result });
+})
 
 module.exports = router;

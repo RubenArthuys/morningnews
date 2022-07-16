@@ -7,11 +7,10 @@ import { connect } from 'react-redux';
 
 
 function ScreenSource(props) { 
-  // on passe les props de mapDispatchToProps (écriture dans store) & mapStateToProps (lecture du store).
 
-  //// Load main articles from API ////
   const [sourceList, setSourceList] = useState([])
   
+  //// Load main articles from API ////
   useEffect(() => {
 
     async function loadAPISources() {
@@ -27,31 +26,16 @@ function ScreenSource(props) {
     
   }, [props.selectCountry])
 
-
-  //// Load articles from MongoDB //// À réparer
-  // useEffect(() => {
-
-  //   async function loadArticles() {
-      
-  //     const request = await fetch('/wishList/'+ props.myToken)
-  //     const body = await request.json()
-
-  //     if(body.loadArticles) {
-  //       props.importArticles(body.loadArticles)
-  //     }
-  //   }
-  //   loadArticles()
-  // }, [])
-
-
   return (
     <div>
       <Nav />
       <div className="Banner" style = {{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-          <Avatar src={"./images/uk.png"} alt="british flag" onClick={() => props.changeToEnglish()}
-                  style={{marginRight: 10}}/>
-          <Avatar src={"./images/fr.png"} alt="british flag" onClick={() => props.changeToFrench()}/>
-                                                
+          <Avatar src={"./images/uk.png"} alt="british flag" 
+                  style={{marginRight: 10}}
+                  onClick={() => props.changeToEnglish()}/>
+
+          <Avatar src={"./images/fr.png"} alt="french flag" 
+                  onClick={() => props.changeToFrench()}/>                              
       </div>
 
       <div className="HomeThemes">
@@ -86,9 +70,6 @@ function mapDispatchToProps(dispatch) {
     },
     changeToFrench: function() {
       dispatch({ type : 'changeToFrench', countryChange : 'fr' })
-    },
-    importArticles: function (articles) {
-      dispatch({ type: 'importArticles', articles })
     }
   }
 }

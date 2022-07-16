@@ -1,10 +1,10 @@
 var mongoose = require('mongoose')
 
 var articlesSchema = mongoose.Schema({
-    articleTitle: String,
-    articleDescription: String,
-    articleContent: String,
-    articleImage: String
+    title: String,
+    description: String,
+    content: String,
+    urlToImage: String
 })
 
 var usersSchema = mongoose.Schema({
