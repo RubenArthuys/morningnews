@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import { Card, Icon } from 'antd';
 import Nav from './Nav'

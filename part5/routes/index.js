@@ -108,9 +108,13 @@ router.delete('/wishList', async function(req, res) {
   var user = await usersModel.findOne({ userToken : req.body.tokenFromFront })
   // console.log( user.userArticles )
   // console.log(req.body.tokenFromFront)
+
   if(user !== null) {
-    user.userArticles = user.userArticles.filter(element => element.articleTitle !== req.body.titleFromFront)
-    // console.log(req.body.titleFromFront)
+
+    user.userArticles = user.userArticles.filter((element) => 
+    element.articleTitle !== req.body.titleFromFront)
+    console.log(req.body.titleFromFront)
+
     await user.save()
   }
   
@@ -118,17 +122,17 @@ router.delete('/wishList', async function(req, res) {
 })
 
 // Load article from BDD - À réparer
-router.get('/wishList/:myToken', async function(req, res) {
+// router.get('/wishList/:myToken', async function(req, res) {
 
-  var user = await usersModel.findOne({ userToken : req.params.myToken })
+//   var user = await usersModel.findOne({ userToken : req.params.myToken })
 
-  var loadArticles = []
+//   var loadArticles = []
 
-  if(user !== null) {
-    loadArticles = user.userArticles
-  }
+//   if(user !== null) {
+//     loadArticles = user.userArticles
+//   }
   
-  res.json({ loadArticles });
-})
+//   res.json({ loadArticles });
+// })
 
 module.exports = router;

@@ -1,4 +1,4 @@
-export default function tokenReducer(token = ' ', action) {
+export default function token(token = ' ', action) {
 
   if(action.type === 'addToken') {
     

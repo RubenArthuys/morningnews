@@ -29,19 +29,19 @@ function ScreenSource(props) {
 
 
   //// Load articles from MongoDB //// À réparer
-  useEffect(() => {
+  // useEffect(() => {
 
-    async function loadArticles() {
+  //   async function loadArticles() {
       
-      const request = await fetch('/wishList/'+ props.myToken)
-      const body = await request.json()
+  //     const request = await fetch('/wishList/'+ props.myToken)
+  //     const body = await request.json()
 
-      if(body.loadArticles) {
-        props.importArticles(body.loadArticles)
-      }
-    }
-    loadArticles()
-  }, [])
+  //     if(body.loadArticles) {
+  //       props.importArticles(body.loadArticles)
+  //     }
+  //   }
+  //   loadArticles()
+  // }, [])
 
 
   return (

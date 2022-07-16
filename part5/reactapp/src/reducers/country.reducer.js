@@ -1,4 +1,4 @@
-export default function countryReducer(country = '', action) {
+export default function country(country = '', action) {
 
   if(action.type === 'changeToEnglish') { // ça c'est l'action qui vient du dispatch
     

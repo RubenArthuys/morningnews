@@ -1,4 +1,4 @@
-export default function articleReducer(wishList = [], action) {
+export default function wishList(wishList = [], action) {
 
   if(action.type === 'addArticle') {
     
@@ -7,7 +7,7 @@ export default function articleReducer(wishList = [], action) {
       // Condition pour eviter les doublons :
       let findArticle = false 
       for(var i=0; i<wishListCopy.length; i++) {
-        if(wishListCopy[i].title == action.articleLiked.title) {
+        if(wishListCopy[i].title === action.articleLiked.title) {
           findArticle = true
         }
       }
