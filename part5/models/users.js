@@ -1,5 +1,7 @@
 var mongoose = require('mongoose')
 
+
+// Changer le schéma d'articles, pour que les keys correspondent au JSON de newsAPI ... !
 var articlesSchema = mongoose.Schema({
     title: String,
     description: String,

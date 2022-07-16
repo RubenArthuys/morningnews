@@ -79,3 +79,4 @@ export default connect( // pour connecter les fonctions redux et le composant Sc
   mapStateToProps,
   mapDispatchToProps
 )(ScreenSource)
+

@@ -19,7 +19,7 @@ function ScreenMyArticles(props) {
       const request = await fetch(`/wishList/${props.myToken}`, {
         method : 'GET',
         headers : {'Content-Type': 'application/x-www-form-urlencoded'}
-        // body : ...no 'body' in GET method, use params instead.
+        // body : ...pas de 'body' avec GET method, on utilise params dans index.js à la place.
       })
 
       const body = await request.json()
@@ -41,6 +41,7 @@ function ScreenMyArticles(props) {
       method : 'DELETE',
       headers : {'Content-Type': 'application/x-www-form-urlencoded'},
       body: `tokenFromFront=${props.myToken}&titleFromFront=${article.title}`
+      // Changer à `article.title` pour que la key correspondent au JSON de newsAPI.
     })
   }
 

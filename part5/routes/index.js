@@ -88,7 +88,8 @@ router.post('/wishList', async function(req, res) {
   // console.log( user )
 
   if(user !== null) {
-
+  
+    // Changer les keys de push pour correspondre au JSON de newsAPI.
     user.userArticles.push({
       title : req.body.titleFromFront,
       description : req.body.descriptionFromFront,
@@ -111,6 +112,7 @@ router.delete('/wishList', async function(req, res) {
 
   if(user !== null) {
 
+    // Changer la key à 'element.title' pour correspondre au JSON de newsAPI.
     user.userArticles = user.userArticles.filter((element) => 
     element.title !== req.body.titleFromFront)
     // console.log(req.body.titleFromFront)

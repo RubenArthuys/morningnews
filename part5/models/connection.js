@@ -17,4 +17,3 @@ mongoose.connect('mongodb+srv://rubenarth:XH2uztbN9ttgnTVQ@cluster0.v5blhg2.mong
         console.info("__CONNECTION TO DATABASE morningnews___ OK 𖡃");      }
       }
  )
-
